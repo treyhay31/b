@@ -9,12 +9,15 @@ export default function Home() {
 
   const makeOutput = input => {
     return input.length < 2 || isNoMatch(input) ? (
-      <h2>
-        Enter the name of any book in the Bible... Or you could enter the
-        chapter number... Genesis 1 being (1) and Revelation x being (1000)
-      </h2>
+      <div className="typewriter">
+        <h1>Enter the name of any book in the Bible...</h1>
+        <h1>Or you could enter the chapter number...</h1>
+        <h1>Genesis 1 being (1) and Revelation x being (1000)</h1>
+      </div>
     ) : (
-      <h2>here is your output</h2>
+      <div>
+        <h2>here is your output</h2>
+      </div>
     )
   }
 
