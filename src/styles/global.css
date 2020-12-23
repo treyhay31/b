@@ -1,0 +1,56 @@
+html,
+body {
+  font-size: 62.5%;
+  color: darkslategrey;
+  font-family: Lato;
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 3fr;
+  place-content: center;
+  place-items: center;
+}
+
+.main__display h1 {
+  font-size: 10vh;
+  color: darkslategrey;
+}
+
+.main__input {
+  width: 40rem;
+  margin: 0 auto;
+  font-family: Lato;
+  font-size: 2rem;
+}
+.main__input input {
+  width: 40rem;
+  height: 8rem;
+  margin-top: 8rem;
+  font-family: Lato;
+  font-size: 2rem;
+  background-color: transparent;
+  border: none;
+  border-top: 3px solid darkslategrey;
+  border-bottom: 3px solid darkslategrey;
+  outline: none;
+  padding-left: 1rem;
+}
+.main__input input:focus + label {
+  top: -13rem;
+  font-size: 1.5rem;
+  transition: all 0.3s;
+}
+.main__input label {
+  display: block;
+  position: relative;
+  left: 1rem;
+  top: -5.5rem;
+  font-size: 2rem;
+  cursor: text;
+  opacity: 0.6;
+  transition: all 0.3s;
+}
