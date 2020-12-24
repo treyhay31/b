@@ -48,7 +48,7 @@ export default function Home() {
         <p className="typewriter">Enter the name of any book in the Bible...</p>
       </div>
     ) : (
-      getBook(input)
+      getBook(input.toLowerCase())
     )
   }
 

@@ -1,16 +1,56 @@
+:root {
+  --back-1: #1e90ff;
+  --back-2: #ffffff;
+  --color-good: white;
+  --color-bad: hotpink;
+  --color-base: darkslategrey;
+  --color-alt-1: plum;
+}
+
 html,
 body {
   font-size: 62.5%;
-  color: darkslategrey;
+  color: var(--color-base);
   font-family: Lato;
   background: linear-gradient(44deg, #cbcad2, #ebebff);
   height: 100vh;
   width: 100vw;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 * {
   box-sizing: border-box;
+}
+@media screen and (max-width: 260px) {
+  body,
+  html {
+    font-size: 10%;
+  }
+}
+@media screen and (min-width: 260px) {
+  body,
+  html {
+    font-size: 20%;
+  }
+}
+@media screen and (min-width: 475px) {
+  body,
+  html {
+    font-size: 40%;
+  }
+}
+@media screen and (min-width: 760px) {
+  body,
+  html {
+    font-size: 62.5%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  body,
+  html {
+    font-size: 75%;
+  }
 }
 
 .main {
@@ -24,8 +64,8 @@ body {
 }
 
 .main__display h1 {
-  font-size: 10vh;
-  color: darkslategrey;
+  font-size: 5rem;
+  color: var(--color-base);
 }
 
 .main__input {
@@ -42,8 +82,8 @@ body {
   font-size: 2rem;
   background-color: transparent;
   border: none;
-  border-top: 3px solid darkslategrey;
-  border-bottom: 3px solid darkslategrey;
+  border-top: 3px solid var(--color-base);
+  border-bottom: 3px solid var(--color-base);
   outline: none;
   padding-left: 1rem;
 }
@@ -70,13 +110,13 @@ body {
 
 .not-found {
   font-size: 3rem;
-  color: hotpink;
+  color: var(--color-bad);
   opacity: 0.7;
 }
 
 .found {
   font-size: 4rem;
-  color: darkgreen;
+  color: var(--color-good);
 }
 .found > p {
   padding: auto 5rem;
@@ -85,13 +125,14 @@ body {
 
 .typewriter {
   overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: 0.15em solid plum; /* The typwriter cursor */
+  border-right: 0.15em solid var(--color-alt-1); /* The typwriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
   letter-spacing: 0.15em; /* Adjust as needed */
   animation: typing 5s steps(40, end);
   font-size: 3rem;
   opacity: 0.8;
+  word-wrap: break-word;
 }
 
 /* The typing effect */
@@ -111,6 +152,6 @@ body {
     border-color: transparent;
   }
   50% {
-    border-color: plum;
+    border-color: var(--color-alt-1);
   }
 }
