@@ -13,11 +13,10 @@ body {
   color: var(--color-base);
   font-family: Lato;
   background: linear-gradient(44deg, var(--back-1), var(--back-2));
-  height: 100vh;
-  width: 100vw;
+  height: 200vh;
+  width: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden;
 }
 * {
   box-sizing: border-box;

@@ -43,7 +43,7 @@ export default function Home() {
   }
 
   const makeOutput = input => {
-    return input.length < 2 ? (
+    return input.length < 1 ? (
       <div>
         <p className="typewriter">Enter the name of any book in the Bible...</p>
       </div>

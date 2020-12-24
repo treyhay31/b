@@ -1341,6 +1341,39 @@ const aggregateChapters = books => {
 
 const booksAggregated = aggregateChapters(books)
 
+const cleanChapters = books => {
+  const results = books
+  Object.keys(books)
+    .filter(b => b.startsWith("1 "))
+    .forEach(book => {
+      let currentBook = book
+      let currentNum = 1
+      const start = books[currentBook].start
+      let end = books[currentBook].end
+      while (books.hasOwnProperty(currentBook)) {
+        end = books[currentBook].end
+        currentBook = currentBook.replace(`${currentNum++} `, `${currentNum} `)
+      }
+      const noNums = book.replace("1 ", "")
+      if (results.hasOwnProperty(noNums)) {
+        results[`${noNums}1-${currentNum - 1}`] = {
+          start,
+          end,
+          total: end - start,
+        }
+      } else {
+        results[noNums] = {
+          start,
+          end,
+          total: end - start,
+        }
+      }
+    })
+  return results
+}
+
+const booksAggregatedAndCleaned = cleanChapters(booksAggregated)
+
 const trieNode = input => ({
   word: "",
   data: input.data,
@@ -1368,7 +1401,7 @@ const makeTrie = books => {
   return trie
 }
 
-const trie = makeTrie(booksAggregated)
+const trie = makeTrie(booksAggregatedAndCleaned)
 
 const search = (trie, text) => {
   const lower = text.toLowerCase()
