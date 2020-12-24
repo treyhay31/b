@@ -1,7 +1,7 @@
 :root {
-  --back-1: #1e90ff;
-  --back-2: #ffffff;
-  --color-good: white;
+  --back-1: #cbcad2;
+  --back-2: #ebebff;
+  --color-good: darkgreen;
   --color-bad: hotpink;
   --color-base: darkslategrey;
   --color-alt-1: plum;
@@ -12,7 +12,7 @@ body {
   font-size: 62.5%;
   color: var(--color-base);
   font-family: Lato;
-  background: linear-gradient(44deg, #cbcad2, #ebebff);
+  background: linear-gradient(44deg, var(--back-1), var(--back-2));
   height: 100vh;
   width: 100vw;
   margin: 0;
