@@ -1321,12 +1321,17 @@ const books = {
     22: "21",
   },
 }
-
 const aggregateChapters = books => {
   let i = 0
   let aggregated = {}
+  let chapters = ['Introduction']
   Object.keys(books).forEach(book => {
     const numOfChaps = Object.keys(books[book]).length
+    
+    for (let j = 1; j < numOfChaps; j++) {
+      chapters.push(book)
+    }
+
     const startChap = i + 1
     const endChap = i + numOfChaps
     aggregated[book] = {
@@ -1336,10 +1341,10 @@ const aggregateChapters = books => {
     }
     i += numOfChaps
   })
-  return aggregated
+  return [aggregated, chapters]
 }
 
-const booksAggregated = aggregateChapters(books)
+const [booksAggregated, chapters] = aggregateChapters(books)
 
 const cleanChapters = books => {
   const results = books
@@ -1451,11 +1456,24 @@ const fuzzySearch = (trie, text) => {
   return getWords(trie)
 }
 
+
+const isNumber = (val) => typeof val === 'number' && isFinite(val);
+
+const searchChapters = (num) => {
+  if (isNumber(num) && num < chapters.length){
+    return [chapters[num], num]
+  }
+  
+  return [null, null]
+}
+
 export default {
   books,
   booksAggregated,
+  chapters,
   trie,
   search,
   fuzzySearch,
   getWords,
+  searchChapters
 }

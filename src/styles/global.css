@@ -112,14 +112,18 @@ body {
   color: var(--color-bad);
   opacity: 0.7;
 }
-
+.found-results {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+}
 .found {
   font-size: 4rem;
   color: var(--color-good);
 }
 .found > p {
   padding: auto 5rem;
-  text-align: center;
+  text-align: left;
 }
 
 .typewriter {

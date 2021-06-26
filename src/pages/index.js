@@ -14,22 +14,38 @@ export default function Home() {
   const changeBackgroundBack = e => {
     e.target.style.background = color.regular
   }
+  
   const getBook = input => {
     const results = data.fuzzySearch(data.trie, input)
-
-    if (results.length > 0) {
+    const chapterResults = data.searchChapters(Number(input))
+    console.log('chapter results', chapterResults)
+    if (results.length > 0 || chapterResults !== null) {
+      const [chapterName, chapterNum] = chapterResults
       return (
-        <div className="found">
-          {results.map(r => (
-            <p
-              key={uuid()}
-              onMouseEnter={changeBackground}
-              onMouseLeave={changeBackgroundBack}
-            >
-              {r} | ({data.booksAggregated[r].start}-
-              {data.booksAggregated[r].end})
-            </p>
-          ))}
+        <div className="found-results">
+          <div className="found">
+            <h2>Title</h2>
+            {results.map(r => (
+              <p
+                key={uuid()}
+                onMouseEnter={changeBackground}
+                onMouseLeave={changeBackgroundBack}
+              >
+                {r} | ({data.booksAggregated[r].start}-
+                {data.booksAggregated[r].end})
+              </p>
+            ))}
+          </div>
+          <div className="found">
+            <h2>Chapter - {chapterNum}</h2>
+              <p
+                key={uuid()}
+                onMouseEnter={changeBackground}
+                onMouseLeave={changeBackgroundBack}
+              >
+                {chapterName}
+              </p>
+          </div>
         </div>
       )
     }
